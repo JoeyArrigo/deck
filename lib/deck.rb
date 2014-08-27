@@ -1,12 +1,12 @@
 class Deck
 RANK = [:A, 2, 3, 4, 5, 6, 7, 8, 9, :T, :J, :Q, :K]
-SUIT = [:♣️, :💎, :💖, :♠️]
+SUIT = [:♣️, :♦️, :♥️, :♠️]
 
-	attr_accessor :cards
+	attr_accessor :cards	
 	def initialize
 		@cards= []
-		cross_product= [(RANK.product(SUIT))]
-		cross_product.each{|c| @cards<< Card.new(c[0],c[1])}
+		cross_product= [RANK.product(SUIT)]
+		cross_product[0].each{|c| @cards<< Card.new(c[0],c[1])}
 	end
 	def shuffle
 		7.times do
@@ -23,7 +23,7 @@ class Hand
 	attr_accessor :deck, :cards, :flop, :turn, :river
 	def initialize
 		@deck = Deck.new
-		@cards= cards
+		@cards= deck.cards
 		deck.shuffle
 		@flop = []<<deal<<deal<<deal
 		@turn = deal
@@ -34,6 +34,10 @@ class Hand
 	end
 end
 =begin
+DON'T actually deal, set up struct to index from cards?
+so cards[0] is p1_hand[0], cards[1] is p2_hand[0]...
+
+SH!P!T
 	 sign in with facebook, 'jersey bet'
 	 use facebook tos to spam welcher
 	 ?????
