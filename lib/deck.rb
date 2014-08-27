@@ -4,9 +4,8 @@ SUIT = [:♣️, :♦️, :♥️, :♠️]
 
 	attr_accessor :cards	
 	def initialize
-		@cards= []
-		cross_product= [RANK.product(SUIT)]
-		cross_product[0].each{|c| @cards<< Card.new(c[0],c[1])}
+		@cards=[]
+		cardify
 	end
 	def shuffle
 		7.times do
@@ -16,22 +15,33 @@ SUIT = [:♣️, :♦️, :♥️, :♠️]
 	def deal (n=1)
 	    cards.slice!(0,n)
     end
+    def cardify
+    	RANK.product(SUIT).each{|c| cards<< Card.new(c[0],c[1])}
+	end
+
     class Card <Struct.new(:rank, :suit); end
 end
 
 class Hand
-	attr_accessor :deck, :cards, :flop, :turn, :river
+	attr_accessor :deck, :cards, :p1, :p2, :flop, :turn, :river
 	def initialize
 		@deck = Deck.new
 		@cards= deck.cards
-		deck.shuffle
-		@flop = []<<deal<<deal<<deal
-		@turn = deal
-		@river = deal
+		
 	end
 	def deal(n=1)
 		deck.deal(n)
 	end
+	def dealify
+		deck.shuffle
+		@p1= PlayerHand.new(deal, deal)
+		@p2= PlayerHand.new(deal, deal) 
+		@flop = []<<deal<<deal<<deal
+		@turn = deal
+		@river = deal
+		nil
+	end
+	class PlayerHand <Struct.new(:hole_card_1, :hole_card_2); end
 end
 =begin
 DON'T actually deal, set up struct to index from cards?

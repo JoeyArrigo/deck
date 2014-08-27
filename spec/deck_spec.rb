@@ -49,6 +49,9 @@ describe Hand do
 		it 'responds to deal' do
 			@hand.must_respond_to :deal
 		end
+		it 'responds to dealify, so the cards go where they need to' do
+			@hand.must_respond_to :dealify
+		end
 	end
 	describe 'cards' do
 	end
