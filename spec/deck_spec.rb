@@ -4,7 +4,6 @@ require_relative "../lib/deck.rb"
 describe Deck do
 	before do
 		@deck= Deck.new
-#		@card= Card.new(:A, :♣️)
 	end
 
     describe 'public interface' do
@@ -20,13 +19,8 @@ describe Deck do
     end
     describe 'deal' do
     	it 'deals top card of unshuffled deck' do
-    		#@deck.deal.must_include [:A, :♣️]
     	end
     end
- #   describe Card do
-  #  	it 'has a rank'
-   # 	it 'has a suit'
-    #end
 end
 
 describe Hand do
