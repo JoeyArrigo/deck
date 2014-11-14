@@ -37,6 +37,13 @@ describe Hand do
 		it 'responds to deck' do
 			@hand.must_respond_to :deck
 		end
+		it 'responds to cards' do
+			@hand.must_respond_to :cards
+		end
+		it 'responds to players' do
+			@hand.must_respond_to :p1
+			@hand.must_respond_to :p2
+		end
 		it 'responds to flop' do
 			@hand.must_respond_to :flop
 		end
@@ -52,7 +59,14 @@ describe Hand do
 		it 'responds to dealify, so the cards go where they need to' do
 			@hand.must_respond_to :dealify
 		end
+	describe Showdown do
+		before do
+			@hand= Hand.new.dealify
+		end
+        it 'happens after the river'
+        it 'reveals player hands'
+        it 'determines the best hand' 
 	end
-	describe 'cards' do
 	end
+
 end

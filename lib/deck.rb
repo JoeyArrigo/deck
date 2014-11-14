@@ -43,6 +43,13 @@ class Hand
 	end
 	class PlayerHand <Struct.new(:hole_card_1, :hole_card_2); end
 end
+
+class Showdown
+	
+
+
+end
+
 =begin
 DON'T actually deal, set up struct to index from cards?
 so cards[0] is p1_hand[0], cards[1] is p2_hand[0]...
