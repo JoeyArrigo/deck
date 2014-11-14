@@ -27,9 +27,8 @@ class Hand
 	def initialize
 		@deck = Deck.new
 		@cards= deck.cards
-		
 	end
-	def deal(n=1)
+    def deal(n=1)
 		deck.deal(n)
 	end
 	def dealify
@@ -45,18 +44,4 @@ class Hand
 end
 
 class Showdown
-	
-
-
 end
-
-=begin
-DON'T actually deal, set up struct to index from cards?
-so cards[0] is p1_hand[0], cards[1] is p2_hand[0]...
-
-SH!P!T
-	 sign in with facebook, 'jersey bet'
-	 use facebook tos to spam welcher
-	 ?????
-	 profit
-=end
